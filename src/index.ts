@@ -5,7 +5,6 @@ function createZone() {
   const description = createDescription();
   zone.addEventListener("click", event => {
     show(description);
-    console.log("showing");
     event.stopPropagation();
   });
   document.body.appendChild(zone);
@@ -43,7 +42,6 @@ function hideAllUnfocusedDescription() {
     }
     if (!shownDescription.some(it => it.contains(event.target as Node))) {
       shownDescription.forEach(it => hide(it));
-      console.log("hiding");
     }
   });
 }
