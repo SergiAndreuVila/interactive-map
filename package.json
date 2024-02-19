@@ -1,0 +1,16 @@
+{
+  "name": "interactive-map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js",
+    "dev": "tsc --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^2.1.0",
+    "selenium-webdriver": "^4.17.0"
+  }
+}

@@ -1,0 +1,44 @@
+body {
+      height: 100vh;
+      width: 100vw;
+      margin: 0;
+      padding: 0;
+}
+
+.background {
+      display: block;
+      position: absolute;
+      height: 100vh;
+      width: 100vw;
+      background-image:url('../assets/demo-map.png');
+      background-repeat: no-repeat;
+      background-size: 100%;
+      margin: 0;
+      padding: 0;
+  }
+  
+  .zone {
+    background-color: yellow;
+    width: 112px;
+    height: 62px;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    left: 50%;
+    opacity: 25%;
+  }
+
+  .description {
+      background-color: red;
+      width: 112px;
+      height: 62px;
+      position: absolute;
+    }
+
+.hidden {
+      display: none;
+}
+
+.shown {
+      display: block;
+}

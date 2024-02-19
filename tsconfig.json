@@ -1,0 +1,8 @@
+{
+      "compilerOptions": {
+            "target": "es2015",  // or a higher version that supports Array.from
+            "lib": ["es2015", "dom"],
+            // Other compiler options...
+      },
+// Other configuration...
+}
