@@ -12,5 +12,8 @@
   "dependencies": {
     "assert": "^2.1.0",
     "selenium-webdriver": "^4.17.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
   }
 }

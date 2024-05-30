@@ -3,18 +3,18 @@ body {
       width: 100vw;
       margin: 0;
       padding: 0;
+      background-color: black
 }
 
 .background {
       display: block;
       position: absolute;
-      height: 100vh;
-      width: 100vw;
-      background-image:url('../assets/demo-map.png');
+      background-image:url('../assets/16-9-map.webp'); /*TODO: tenir una imatge de 16/9*/
       background-repeat: no-repeat;
-      background-size: 100%;
+      background-size: contain;
       margin: 0;
       padding: 0;
+      z-index: -1;
   }
   
   .zone {

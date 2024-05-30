@@ -1,7 +1,7 @@
 function createZone() {
   const zone = document.createElement("span");
   zone.classList.add("zone");
-  zone.innerText = "i am a zone";
+  zone.innerText = "i am a zone"; 
   const description = createDescription();
   zone.addEventListener("click", event => {
     show(description);
@@ -46,7 +46,29 @@ function hideAllUnfocusedDescription() {
   });
 }
 
+var background: HTMLElement;
+
+function setBackgroundSize() {
+  var width = window.innerWidth;
+  var height = window.innerHeight;
+  const aspectRatio = 16 / 9;
+  if (width / aspectRatio < height) {
+    background.setAttribute('style', `height:${(width / aspectRatio).toFixed(2)}px; width: 100vw;`);
+  } else {
+    background.setAttribute('style', `height: 100vh; width:${(height * aspectRatio).toFixed(2)}px;`)
+  }
+}
+
+function createBackground() {
+  background = document.createElement("span");
+  background.classList.add("background");
+  document.body.appendChild(background);
+}
+
 function setup() {
+  createBackground();
+  window.addEventListener('load', setBackgroundSize);
+  window.addEventListener('resize', setBackgroundSize);
   hideAllUnfocusedDescription();
 }
 
