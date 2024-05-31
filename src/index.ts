@@ -1,8 +1,11 @@
-function createZone() {
+import { mapConfig, MapConfig } from './assets/mapConfig';
+
+function createZone(config: MapConfig) {
   const zone = document.createElement("span");
   zone.classList.add("zone");
-  zone.innerText = "i am a zone"; 
-  const description = createDescription();
+  zone.innerText = config.title; 
+  const description = createDescription(config);
+  description.setAttribute('style', `height:${config.size.height}px; width: ${config.size.width}; left: ${config.offset.x}; top: ${config.offset.y}`);
   zone.addEventListener("click", event => {
     show(description);
     event.stopPropagation();
@@ -10,11 +13,11 @@ function createZone() {
   document.body.appendChild(zone);
 }
 
-function createDescription() {
+function createDescription(config: MapConfig) {
   const description = document.createElement("span");
   description.classList.add("description");
   description.classList.add("hidden");
-  description.innerText = "i am a description";
+  description.innerText = config.description;
   document.body.appendChild(description);
 
   return description;
@@ -65,12 +68,16 @@ function createBackground() {
   document.body.appendChild(background);
 }
 
+function loadMapConfig() {
+  mapConfig.forEach(it => createZone(it));
+}
+
 function setup() {
   createBackground();
   window.addEventListener('load', setBackgroundSize);
   window.addEventListener('resize', setBackgroundSize);
+  loadMapConfig();
   hideAllUnfocusedDescription();
 }
 
-createZone();
 setup();
