@@ -1,4 +1,4 @@
-export const mapConfig = [
+export const config = [
     {
         title: "i am the 1st zone",
         offset: {

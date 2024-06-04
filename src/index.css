@@ -7,14 +7,12 @@ body {
 }
 
 .background {
-      display: block;
       position: absolute;
-      background-image:url('./assets/16-9-map.webp'); /*TODO: tenir una imatge de 16/9*/
+      background-image:url('../assets/16-9-map.webp'); /*TODO: tenir una imatge de 16/9*/
       background-repeat: no-repeat;
       background-size: contain;
       margin: 0;
       padding: 0;
-      z-index: -1;
   }
   
   .zone {

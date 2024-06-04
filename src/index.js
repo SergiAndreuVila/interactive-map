@@ -1,22 +1,23 @@
-import { mapConfig } from './assets/mapConfig';
+import { config } from "./mapConfig.js";
 function createZone(config) {
     const zone = document.createElement("span");
     zone.classList.add("zone");
     zone.innerText = config.title;
     const description = createDescription(config);
-    description.setAttribute('style', `height:${config.size.height}px; width: ${config.size.width}; left: ${config.offset.x}; top: ${config.offset.y}`);
+    zone.setAttribute('style', `height:${config.size.height}%; width: ${config.size.width}%; left: ${config.offset.x}%; top: ${config.offset.y}%`);
     zone.addEventListener("click", event => {
         show(description);
         event.stopPropagation();
+        // TODO: assegurar que els clicks entre zones intercanvien descripcions
     });
-    document.body.appendChild(zone);
+    background.appendChild(zone);
 }
 function createDescription(config) {
     const description = document.createElement("span");
     description.classList.add("description");
     description.classList.add("hidden");
     description.innerText = config.description;
-    document.body.appendChild(description);
+    background.appendChild(description);
     return description;
 }
 function show(element) {
@@ -58,7 +59,7 @@ function createBackground() {
     document.body.appendChild(background);
 }
 function loadMapConfig() {
-    mapConfig.forEach(it => createZone(it));
+    config.forEach(it => createZone(it));
 }
 function setup() {
     createBackground();

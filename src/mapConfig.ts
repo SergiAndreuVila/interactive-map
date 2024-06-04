@@ -1,4 +1,17 @@
-export const mapConfig: MapConfig[] = [
+export interface MapConfig {
+    title: string,
+    offset: {
+        x: number,
+        y: number,
+    },
+    size: {
+        width: number,
+        height: number,
+    }
+    description: string,
+}
+
+export const config: MapConfig[] = [
     {
         title: "i am the 1st zone",
         offset: {
@@ -24,16 +37,3 @@ export const mapConfig: MapConfig[] = [
         description: "i am the 2nd zone description",
     },
 ];
-
-export interface MapConfig {
-    title: string,
-    offset: {
-        x: number,
-        y: number,
-    },
-    size: {
-        width: number,
-        height: number,
-    }
-    description: string,
-}
