@@ -8,10 +8,10 @@ function createZone(config) {
     zone.addEventListener("click", event => {
         show(description);
         event.stopPropagation();
-        // TODO: assegurar que els clicks entre zones intercanvien descripcions
     });
     background.appendChild(zone);
 }
+
 function createDescription(config) {
     const description = document.createElement("span");
     description.classList.add("description");
@@ -20,28 +20,38 @@ function createDescription(config) {
     background.appendChild(description);
     return description;
 }
+
 function show(element) {
+    hideAllUnfocusedDescription(element);
     element.classList.add("shown");
     element.classList.remove("hidden");
 }
+
 function hide(element) {
     element.classList.add("hidden");
     element.classList.remove("shown");
 }
+
 const findAllShownDescription = () => Array.from(document.querySelectorAll(".description.shown"));
+
 const isEmptyOrUndefined = (it) => it == undefined || it.length == 0;
-function hideAllUnfocusedDescription() {
-    document.addEventListener("click", event => {
-        const shownDescription = findAllShownDescription();
-        if (isEmptyOrUndefined(shownDescription)) {
-            return;
-        }
-        if (!shownDescription.some(it => it.contains(event.target))) {
-            shownDescription.forEach(it => hide(it));
-        }
-    });
+
+function hideAllUnfocusedForEveryClick() {
+    document.addEventListener("click", event => hideAllUnfocusedDescription(event.target));
 }
+
+function hideAllUnfocusedDescription(element) {
+    const shownDescription = findAllShownDescription();
+    if (isEmptyOrUndefined(shownDescription)) {
+        return;
+    }
+    if (!shownDescription.some(it => it.contains(element))) {
+        shownDescription.forEach(it => hide(it));
+    }
+}
+
 var background;
+
 function setBackgroundSize() {
     var width = window.innerWidth;
     var height = window.innerHeight;
@@ -53,19 +63,22 @@ function setBackgroundSize() {
         background.setAttribute('style', `height: 100vh; width:${(height * aspectRatio).toFixed(2)}px;`);
     }
 }
+
 function createBackground() {
     background = document.createElement("span");
     background.classList.add("background");
     document.body.appendChild(background);
 }
+
 function loadMapConfig() {
     config.forEach(it => createZone(it));
 }
+
 function setup() {
     createBackground();
     window.addEventListener('load', setBackgroundSize);
     window.addEventListener('resize', setBackgroundSize);
     loadMapConfig();
-    hideAllUnfocusedDescription();
+    hideAllUnfocusedForEveryClick();
 }
 setup();
