@@ -9,7 +9,6 @@ function createZone(config: MapConfig) {
   zone.addEventListener("click", event => {
     show(description);
     event.stopPropagation();
-    // TODO: assegurar que els clicks entre zones intercanvien descripcions
   });
   background.appendChild(zone);
 }
