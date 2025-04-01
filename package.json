@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type":"module",
   "scripts": {
     "test": "node test/test.js",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "start": "http-server -c-1"
   },
   "author": "",
   "license": "ISC",

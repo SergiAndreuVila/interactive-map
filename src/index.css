@@ -7,24 +7,22 @@ body {
 }
 
 .background {
-      display: block;
       position: absolute;
       background-image:url('../assets/16-9-map.webp'); /*TODO: tenir una imatge de 16/9*/
       background-repeat: no-repeat;
       background-size: contain;
       margin: 0;
       padding: 0;
-      z-index: -1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
   }
   
   .zone {
     background-color: yellow;
-    width: 112px;
-    height: 62px;
     position: absolute;
     margin: 0;
     padding: 0;
-    left: 50%;
     opacity: 25%;
   }
 
